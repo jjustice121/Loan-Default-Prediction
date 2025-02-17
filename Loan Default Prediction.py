@@ -13,11 +13,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import kagglehub
 import sklearn as sk
+import sys
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
 import seaborn as sns
 
 #Ingest Data#############################################################################################################################################
@@ -74,14 +75,23 @@ X_train, X_test, y_train, y_test = sk.model_selection.train_test_split(X,y, test
 
 
 #Logistic Regression
-Logit = LogisticRegression()
+def str_to_class(classname):
+    return getattr(sys.modules[__name__], classname)
 
-Random_Forest = RandomForestClassifier()
 
-Logit_fit = Logit.fit(X_train, y_train)
+def model_fit_and_metrics (classifier):
+    
+    model = str_to_class(classifier)()
 
-Logit_pred = Logit.predict(X_test)
+    model_fit = model.fit(X_train, y_train)
 
-print(accuracy_score(y_test, Logit_pred))
+    model_pred = model.predict(X_test)
 
-#Random Forest Classifier
+    print(classifier,'Accuracy:',accuracy_score(y_test, model_pred), 'Precision:',precision_score(y_test, model_pred),
+          'Recall:',recall_score(y_test, model_pred),'F1 Score:' ,f1_score(y_test, model_pred))
+
+Classifiers = ['LogisticRegression','RandomForestClassifier']
+    
+[model_fit_and_metrics(i) for i in Classifiers]
+
+#check for class imbalance (SMOTE?) and run precision, recall, F1, ROC metrics

@@ -19,6 +19,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
+from imblearn.over_sampling import SMOTE
 import seaborn as sns
 
 #Ingest Data#############################################################################################################################################
@@ -61,6 +62,11 @@ def plot_and_show (df,var):
 #encode categorical variables
 Loan_Default[Cat_Features] = Loan_Default[Cat_Features].apply(LabelEncoder().fit_transform)
 
+#check for class imbalance in default
+sns.countplot(x = Loan_Default['Default'])
+
+plt.show()
+
 #generate correlation matrix
 Corr_Matrix = Loan_Default[(Num_Features + Cat_Features)].corr()
 
@@ -73,12 +79,21 @@ y = Loan_Default['Default']
 
 X_train, X_test, y_train, y_test = sk.model_selection.train_test_split(X,y, test_size=0.4, random_state=57)
 
+#apply SMOTE to balance default classes
+smote = SMOTE(random_state=57)
 
-#Logistic Regression
+X_train, y_train = smote.fit_resample(X_train, y_train)
+
+#check for class balance visually
+sns.countplot(x = y_train)
+
+plt.show()
+
+#Write function to convert string to class
 def str_to_class(classname):
     return getattr(sys.modules[__name__], classname)
 
-
+#Write function to generate model fit and metrics
 def model_fit_and_metrics (classifier):
     
     model = str_to_class(classifier)()
@@ -90,8 +105,9 @@ def model_fit_and_metrics (classifier):
     print(classifier,'Accuracy:',accuracy_score(y_test, model_pred), 'Precision:',precision_score(y_test, model_pred),
           'Recall:',recall_score(y_test, model_pred),'F1 Score:' ,f1_score(y_test, model_pred))
 
+#list of classifiers
 Classifiers = ['LogisticRegression','RandomForestClassifier']
-    
+
+#Iterate over list of classifiers
 [model_fit_and_metrics(i) for i in Classifiers]
 
-#check for class imbalance (SMOTE?) and run precision, recall, F1, ROC metrics

@@ -57,7 +57,8 @@ def plot_and_show (df,var):
 
     plt.show()
 
-[plot_and_show(Loan_Default, i) for i in Num_Features]
+
+[plot_and_show(Loan_Default, i) for i in Num_Features[0:9]]
 
 #encode categorical variables
 Loan_Default[Cat_Features] = Loan_Default[Cat_Features].apply(LabelEncoder().fit_transform)

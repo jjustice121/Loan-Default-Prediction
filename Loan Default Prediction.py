@@ -14,6 +14,7 @@ import matplotlib.pyplot as plt
 import kagglehub
 import sklearn as sk
 import sys
+from functools import reduce
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
@@ -95,6 +96,8 @@ def str_to_class(classname):
     return getattr(sys.modules[__name__], classname)
 
 #Write function to generate model fit and metrics
+metrics = []
+
 def model_fit_and_metrics (classifier):
     
     model = str_to_class(classifier)()
@@ -103,12 +106,18 @@ def model_fit_and_metrics (classifier):
 
     model_pred = model.predict(X_test)
 
-    print(classifier,'Accuracy:',accuracy_score(y_test, model_pred), 'Precision:',precision_score(y_test, model_pred),
-          'Recall:',recall_score(y_test, model_pred),'F1 Score:' ,f1_score(y_test, model_pred))
+    output_df = pd.DataFrame({'Metric': ['Accuracy','Precision','Recall','F1 Score'], 
+                             str(classifier) : [accuracy_score(y_test, model_pred), precision_score(y_test, model_pred),recall_score(y_test, model_pred), f1_score(y_test, model_pred)]})
+    
+    metrics.append(output_df)    
+
 
 #list of classifiers
 Classifiers = ['LogisticRegression','RandomForestClassifier']
 
 #Iterate over list of classifiers
 [model_fit_and_metrics(i) for i in Classifiers]
+
+#merge dataframes in metrics list to create output table
+Output_Table = reduce(lambda x,y: pd.merge(x,y, on = 'Metric'), metrics)
 

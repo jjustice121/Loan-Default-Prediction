@@ -44,4 +44,14 @@ Aggregate consumer debt has been increasing steadily since the 2008-09 financial
 
     -Cosigner: indicator for whether or not the loan has a cosigner
 
-# Data Wrangling
+# Exploratory Data Analysis
+
+Important Observations
+
+    -The Average DTI Ratio in the sample is 0.5 (50%), this is substantially higher than the average DTI Ratio of 0.115 (11.5%) in the United States and the generally acceptable ("good") DTI Ratio of 0.35 (35%) according to US Bank
+
+    -The Average Age in the sample is about 43 years old, which is higher than the average age in the United States of about 38 years old according to the US Census.
+
+    -The Average loan amount is $127,579 which might be considered a bit high for a single consumer loan but, we should keep in mind that business loans are included in the sample as well and may be skewing the distribution.
+
+        

@@ -6,7 +6,7 @@ Aggregate consumer debt has been increasing steadily since the 2008-09 financial
 
 -The dataset leveraged for this analysis is the 'Loan Default Prediction' dataset found here: https://www.kaggle.com/datasets/nikhil1e9/loan-default
 
--Target Variable: 
+-Dependent Variable: 
 
     -Loan Default Rate: indicator for whether or not consumer defaulted on loan
 
@@ -44,31 +44,4 @@ Aggregate consumer debt has been increasing steadily since the 2008-09 financial
 
     -Cosigner: indicator for whether or not the loan has a cosigner
 
-The `USDAMARS` package also contains a function called `MARS_Table_Directory` which pulls a data set with details (e.g., slugid, report frequency, and publication date) for all of the USDA Market News reports.
-
-# Examples
-Below are some examples for the functions above should be used.
-
-Example 1: Setting your API Key
-        
-          MARS_API_Key("YOUR API KEY")
-
-Example 2: Retrieving the Table Directory
-
-          Directory <- MARS_Table_Directory()
-
-Example 3: Retrieving a Table/Report
-
-          Report <- MARS_Table_Pull(slugid = 1034)
-
-Example 4: Retrieving a Table/Report with Section and Date
-
-          Report <- MARS_Table_Pull(slugid = 3668, section = "Report Detail", date = "09/30/2024")
-
-# Installation
-Currently, the package is only available through GitHub and can be installed using the code below
-          
-          devtools::install_github("jjustice121/USDAMARS")
-
-Note: You need to install the `devtools` package before you can install the `USDAMARS` package using `install.packages("devtools")`.
-
+# Data Wrangling

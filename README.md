@@ -2,7 +2,7 @@
 # Background
 Aggregate consumer debt has been increasing steadily since the 2008-09 financial crisis, According to US Bank, total household debt reached a record 17.94 trillion dollars in 2024 posing a potential macroeconomic threat, as household debt increases we would expect to see consumption weaken and a heightened risk of recession. It is within this macroeconomic context that we should consider the importance of supporting consumer credit risk modeling and therefore probability of default (PD) modeling.
 
-#Description
+# Description
 The 
 
 `MARS_API_Key` is the function used to set your API key for the current R session

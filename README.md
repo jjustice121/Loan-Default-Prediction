@@ -2,20 +2,47 @@
 # Background
 Aggregate consumer debt has been increasing steadily since the 2008-09 financial crisis, According to US Bank, total household debt reached a record 17.94 trillion dollars in 2024 posing a potential macroeconomic threat, as household debt increases we would expect to see consumption weaken and a heightened risk of recession. It is within this macroeconomic context that we should consider the importance of supporting consumer credit risk modeling and therefore probability of default (PD) modeling.
 
-# Description
-The 
+# Data Description
 
-`MARS_API_Key` is the function used to set your API key for the current R session
+-The dataset leveraged for this analysis is the 'Loan Default Prediction' dataset found here: https://www.kaggle.com/datasets/nikhil1e9/loan-default
 
-  - `MARS_API_Key` takes a single input, your API key (obtained here: https://mymarketnews.ams.usda.gov/mymarketnews-api)
+-Target Variable: 
 
-`MARS_Table_Pull` is the primary function in the USDAMARS package for making data requests.
+    -Loan Default Rate: indicator for whether or not consumer defaulted on loan
 
-  - `MARS_Table_Pull` takes three inputs, the slugid (required), the report section (optional) and, the date/date range (optional).
+-Independent Variables: 
 
-  - slugid: Users can request data based on slugid. For example, users can request data from the report of "Dry Whey - Europe" by setting the slugid equal to 1034.
-  - section: Users can choose the section of a report, such as "Report Detail" by setting section equal to "Report Detail".
-  - date: Users can choose the date of a report, such as "09/30/2024" or range of dates "09/30/2024:11/01/2024" by setting date equal to "09/30/2024" or "09/30/2024:11/01/2024".
+    -Age: consumer age
+
+    -Income: consumer income
+
+    -Loan Amount: outstanding balance on loan
+
+    -Credit Score: consumer credit score
+
+    -Months Employed: work experience/employment history
+
+    -Number of Credit Lines: number of open credit lines
+
+    -Interest Rate: interest rate on loan
+
+    -Loan Term: length of loan term/number of months to maturity
+
+    -Debt-to-Income Ratio: ratio of consumer debt to gross income, indicator of whether or not a consumer is "overburdened"
+
+    -Education: education level/category
+
+    -Employment Status: status of consumer employment
+
+    -Marital Status: consumer marital status
+
+    -Mortgage: indicator for whether or not consumer has mortgage
+
+    -Dependents: indicator for whether or not consumer has dependents
+
+    -Loan Purpose: type of loan
+
+    -Cosigner: indicator for whether or not the loan has a cosigner
 
 The `USDAMARS` package also contains a function called `MARS_Table_Directory` which pulls a data set with details (e.g., slugid, report frequency, and publication date) for all of the USDA Market News reports.
 

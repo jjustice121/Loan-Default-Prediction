@@ -60,7 +60,7 @@ Important Observations
 
 -We should scale our numeric independent variables to account for different units/magnitude of units (ex. age in years vs income in dollars) to prevent biased weighting towards variables with larger units/magnitude
 
-Modeling and Selection
+# Modeling and Selection
 
 
 

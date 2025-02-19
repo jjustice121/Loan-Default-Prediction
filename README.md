@@ -48,10 +48,21 @@ Aggregate consumer debt has been increasing steadily since the 2008-09 financial
 
 Important Observations
 
-    -The Average DTI Ratio in the sample is 0.5 (50%), this is substantially higher than the average DTI Ratio of 0.115 (11.5%) in the United States and the generally acceptable ("good") DTI Ratio of 0.35 (35%) according to US Bank
+The Average DTI Ratio in the sample is 0.5 (50%), this is substantially higher than the average DTI Ratio of 0.115 (11.5%) in the United States and the generally acceptable ("good") DTI Ratio of 0.35 (35%) according to US Bank
 
-    -The Average Age in the sample is about 43 years old, which is higher than the average age in the United States of about 38 years old according to the US Census.
+The Average Age in the sample is about 43 years old, which is higher than the average age in the United States of about 38 years old according to the US Census.
 
-    -The Average loan amount is $127,579 which might be considered a bit high for a single consumer loan but, we should keep in mind that business loans are included in the sample as well and may be skewing the distribution.
+The Average loan amount is $127,579 which might be considered a bit high for a single consumer loan but, we should keep in mind that business loans are included in the sample as well and may be skewing the distribution.
+
+The loan default variable is subject to class imbalance and needs to be adjusted using resamplihg in order to reduce bias in our prediction (in other words, if we don't resample we run the risk of our model predicting non-defaults (majority class) better than defaults (minority class))
+
+We should encode our categorical independent variables to facilitate model training
+
+We should scale our numeric independent variables to account for different units/magnitude of units (ex. age in years vs income in dollars) to prevent biased weighting towards variables with larger units/magnitude
+
+#Modeling and Selection
+
+
+
 
         

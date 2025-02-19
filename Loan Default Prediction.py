@@ -19,6 +19,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
 from imblearn.over_sampling import SMOTE
 import seaborn as sns
@@ -113,7 +114,7 @@ def model_fit_and_metrics (classifier):
 
 
 #list of classifiers
-Classifiers = ['LogisticRegression','RandomForestClassifier']
+Classifiers = ['DecisionTreeClassifier','LogisticRegression','RandomForestClassifier']
 
 #Iterate over list of classifiers
 [model_fit_and_metrics(i) for i in Classifiers]

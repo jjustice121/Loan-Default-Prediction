@@ -62,6 +62,24 @@ Important Observations
 
 # Modeling and Selection
 
+For the purposes of classifying loan default we can employ a variety of statistical model and ML algorithms, to this end I employ a decision tree, logistic regression and, a random forest to predict loan default.
+
+My rationale for choosing relatively simple models is to maintain a degree of accessibility with the modeling and results of these results, these are by no means necessarily the models with the greatest predictive power.
+
+# Logistic Regression
+
+The logistic regression classifier is the most common statistical model used for predicting a dependent variable with a binomial distribution, this model uses a logistic (logit) link function to map the outcome from [0,1] to a scale [-inf,inf] and regresses it on a set of independent variables.
+
+Is especially valued for the interpretability of the coefficients produced by model (not necessarily important for this project but, a valuable consideration in other contexts).
+
+# Decision Trees and Random Forests
+
+
+
+
+
+
+
 
 
 

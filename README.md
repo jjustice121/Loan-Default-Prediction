@@ -64,7 +64,7 @@ Important Observations
 
 For the purposes of classifying loan default we can employ a variety of statistical model and ML algorithms, to this end I employ a decision tree, logistic regression and, a random forest to predict loan default.
 
-My rationale for choosing relatively simple models is to maintain a degree of accessibility with the modeling and results of these results, these are by no means necessarily the models with the greatest predictive power.
+My rationale for choosing relatively simple models is to maintain a degree of accessibility with the modeling and results, these are by no means necessarily the models with the greatest predictive power.
 
 # Logistic Regression
 
